@@ -5,20 +5,20 @@
     if($opt=="record"){
         $rec_id = $_POST['rec_id'];
         $pro_id = $_POST['pro_id']; 
-        $rec_cost = $_POST['rec_cost']; 
-        $rec_list = $_POST['rec_list']; 
-        $rec_send = $_POST['rec_send']; 
         $com_id = $_POST['com_id'];
 
         $com_link = $_GET['com_link'];
 
-        $sql = "UPDATE record SET pro_id='$pro_id',rec_cost='$rec_cost',rec_list='$rec_list',rec_send='$rec_send',com_id='$com_id' WHERE rec_id='$rec_id';";
+        $sql = "UPDATE record SET pro_id='$pro_id',com_id='$com_id' WHERE rec_id='$rec_id';";
 
     }elseif($opt=="product"){
         $pro_id = $_POST['pro_id'];
         $pro_name = $_POST['pro_name'];
         $cate_id = $_POST['cate_id'];
-        $sql = "UPDATE product SET pro_name='$pro_name',cate_id='$cate_id' WHERE pro_id='$pro_id';";
+        $pro_list = $_POST['pro_list']; 
+        $pro_cost = $_POST['pro_cost']; 
+        $pro_send = $_POST['pro_send']; 
+        $sql = "UPDATE product SET pro_name='$pro_name',cate_id='$cate_id', pro_list ='$pro_list',pro_cost='$pro_cost',pro_send='$pro_send' WHERE pro_id='$pro_id';";
     }elseif($opt=="company"){
         $com_id = $_POST['com_id'];
         $com_name = $_POST['com_name'];

@@ -31,6 +31,7 @@ $result = $conn->query($sql);
      <td><?php echo $row['cate_id'] ?></td>
      <td><?php echo $row['cate_name'] ?></td>
      <td>
+       <a href="pro_cate.php?cate_id=<?php echo $row['cate_id'] ?>" class="btn btn-primary btn-sm">สินค้า</a>
        <a href="cate_up.php?cate_id=<?php echo $row['cate_id'] ?>" data-toggle="modal" data-target="#create" data-whatever="@mdo" class="btn btn-warning btn-sm">แก้ไข</a>
        <a href="cate_del.php?cate_id=<?php echo $row['cate_id'] ?>" onclick="return confirm_delete()" class="btn btn-danger btn-sm">ลบ</a>
      </td>

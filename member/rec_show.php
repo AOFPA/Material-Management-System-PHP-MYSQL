@@ -136,21 +136,7 @@ $com_id = $_GET['com_id'];
                   </select>
                 </div>
 
-                <div class="form-group">
-                  <label for="rec_cost" class="control-label">ราคาทุน</label>
-                  <input type="text" class="form-control" id="rec_cost" name="rec_cost" placeholder="0.00">
-                </div>
 
-                <div class="form-group">
-                  <label for="rec_list" class="control-label">ราคาปลีก</label>
-                  <input type="text" class="form-control" id="rec_list" name="rec_list" placeholder="0.00">
-                </div>
-
-                <div class="form-group">
-                  <label for="rec_send" class="control-label">ราคาส่ง
-                  </label>
-                  <input type="text" class="form-control" id="rec_send" name="rec_send" placeholder="0.00">
-                </div>
 
 
                 <a href="rec_show.php?com_id=<?php echo $com_id ?>" class="btn btn-default">ยกเลิก</a>

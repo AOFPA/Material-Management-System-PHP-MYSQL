@@ -4,7 +4,7 @@ include("config.php");
 $rec_id = $_GET['rec_id'];
 $com_id = $_GET['com_id'];
 $pro_id = $_GET['pro_id'];
-$sql = "SELECT * FROM view_rec_pro_cate_com
+$sql = "SELECT * FROM view_rec_pro_cate_com1
         WHERE rec_id='$rec_id';";
 $res = $conn->query($sql);
 $row = $res->fetch_assoc();
@@ -26,7 +26,7 @@ $row = $res->fetch_assoc();
 
             <div class="form-group">
                 <input style="width:50%;" type="hidden" class="form-control" id="rec_id" name="rec_id" value=<?php echo $row['rec_id']; ?>>
-                <label for="rec_id">รหัสสินค้า</label>
+                <label for="rec_id">รหัส</label>
                 <input style="width:50%;" type="text" class="form-control" id="rec_id" name="rec_id" value=<?php echo $row['rec_id']; ?> disabled>
             </div>
 
@@ -72,25 +72,9 @@ $row = $res->fetch_assoc();
             </div>
 
             <div class="form-group">
-                <label for="rec_cost">ราคาทุน</label>
-                <input style="width:50%;" type="text" class="form-control" id="rec_cost" name="rec_cost" value=<?php echo $row['rec_cost']; ?>>
-            </div>
-
-            <div class="form-group">
-                <label for="rec_list">ราคาปลีก</label>
-                <input style="width:50%;" type="text" class="form-control" id="rec_list" name="rec_list" value=<?php echo $row['rec_list']; ?>>
-            </div>
-
-            <div class="form-group">
-                <label for="rec_send">ราคาส่ง</label>
-                <input style="width:50%;" type="text" class="form-control" id="rec_send" name="rec_send" value=<?php echo $row['rec_send']; ?>>
-            </div>
-
-
-
-            <div class="form-group">
                 <label for="com_id">บริษัท</label>
                 <select id="com_id" name="com_id" class="form-control" style="width:300px;">
+                
 
                     <?php
 

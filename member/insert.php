@@ -8,17 +8,17 @@
     if($opt=="record"){
         $com_id = $_GET['com_id'];
         $pro_id = $_POST['pro_id']; 
-        $rec_cost = $_POST['rec_cost']; 
-        $rec_list = $_POST['rec_list']; 
-        $rec_send = $_POST['rec_send']; 
         $com_id = $_GET['com_id'];
 
-        $sql = "INSERT INTO `record` (`rec_id`, `pro_id`, `rec_cost`, `rec_list`, `rec_send`, `com_id`) VALUES (NULL, '$pro_id', '$rec_cost', '$rec_list', '$rec_send', '$com_id'); ";
+        $sql = "INSERT INTO `record` (`rec_id`, `pro_id`, `com_id`) VALUES (NULL, '$pro_id', '$com_id'); ";
     }elseif($opt=="product"){
       $pro_name = $_POST['pro_name']; 
       $pro_stock = $_POST['pro_stock']; 
       $cate_id = $_POST['cate_id']; 
-      $sql = "INSERT INTO `product` (`pro_name`, `pro_stock`,`cate_id`) VALUES ('$pro_name', '$pro_stock','$cate_id'); ";
+      $pro_list = $_POST['pro_list']; 
+      $pro_cost = $_POST['pro_cost']; 
+      $pro_send = $_POST['pro_send']; 
+      $sql = "INSERT INTO `product` (`pro_name`, `pro_stock`,`cate_id`,`pro_list`,`pro_cost`,`pro_send`) VALUES ('$pro_name', '$pro_stock','$cate_id','$pro_list','$pro_cost','$pro_send'); ";
     }elseif($opt=="company"){
       $com_name = $_POST['com_name']; 
       $sql = "INSERT INTO `company` (`com_name`) VALUES ('$com_name'); ";

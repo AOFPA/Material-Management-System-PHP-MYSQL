@@ -1,6 +1,8 @@
 <?php include('css.php');
 include("config.php");
 error_reporting(0);
+
+$cate_id = $_GET['cate_id'];
 ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -28,10 +30,8 @@ error_reporting(0);
     </aside>
     <div class="content-wrapper">
       <section class="content-header">
-        <!-- <h1>
-        ::สวัสดีคุณ ::
+      <a href="cate_show.php" class="btn btn-success btn-sm">ย้อนกลับ</a>
         
-        </h1> -->
       </section>
 
       <section class="content">
@@ -41,7 +41,7 @@ error_reporting(0);
               <div class="row">
                 <div class="col-sm-12">
                   <div class="box-body">
-                   <?php include('pro_read.php');?>
+                   <?php include('pro_read_one.php');?>
                   </div>
                 </div>
               </div>
@@ -88,22 +88,6 @@ error_reporting(0);
                     }
                     ?>
                   </select>
-                </div>
-
-                <div class="form-group">
-                  <label for="pro_cost" class="control-label">ราคาทุน</label>
-                  <input type="text" class="form-control" id="pro_cost" name="pro_cost" placeholder="0.00">
-                </div>
-
-                <div class="form-group">
-                  <label for="pro_list" class="control-label">ราคาปลีก</label>
-                  <input type="text" class="form-control" id="pro_list" name="pro_list" placeholder="0.00">
-                </div>
-
-                <div class="form-group">
-                  <label for="pro_send" class="control-label">ราคาส่ง
-                  </label>
-                  <input type="text" class="form-control" id="pro_send" name="pro_send" placeholder="0.00">
                 </div>
 
                 <div class="form-group">

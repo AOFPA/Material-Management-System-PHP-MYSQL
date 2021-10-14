@@ -2,6 +2,7 @@
 include("config.php");
 
 $sql = "SELECT * FROM view_pro_cate
+        WHERE cate_id = '$cate_id'
         ORDER BY pro_id;";
 $result = $conn->query($sql);
 

@@ -31,6 +31,7 @@ $result = $conn->query($sql);
      <td><?php echo $row['com_id'] ?></td>
      <td><?php echo $row['com_name'] ?></td>
      <td>
+     <a href="rec_show.php?com_id=<?php echo $row['com_id'] ?>" class="btn btn-primary btn-sm">สินค้า</a>
        <a  href="com_up.php?com_id=<?php echo $row['com_id'] ?>" data-toggle="modal" data-target="#create" data-whatever="@mdo" class="btn btn-warning btn-sm">แก้ไข</a>
        <a href="com_del.php?com_id=<?php echo $row['com_id'] ?>" onclick="return confirm_delete()" class="btn btn-danger btn-sm">ลบ</a>
      </td>

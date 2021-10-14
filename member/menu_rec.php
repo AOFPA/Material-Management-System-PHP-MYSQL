@@ -6,23 +6,23 @@
   </li>
   <li class="active">
     <a href="rec_show.php?com_id=1"><i class="fa fa-inbox active"></i>
-      <span>บันทึกรายการสินค้า</span>
+      <span>สินค้าแต่ละบริษัท</span>
     </a>
   </li> 
   <li>
     <a href="pro_show.php"><i class="fa fa-inbox "></i>
-      <span>ข้อมูลสินค้า</span>
+      <span>รายการสินค้าทั้งหมด</span>
     </a>
   </li> 
 
   <li class="">
     <a href="cate_show.php"><i class="fa fa-inbox active" ></i>
-      <span>ข้อมูลประเภทสินค้า</span>
+      <span>ประเภทสินค้า</span>
     </a>
   </li> 
   <li>
     <a href="com_show.php"><i class="fa fa-inbox"></i>
-      <span>ข้อมูลบริษัท</span>
+      <span>รายชื่อบริษัท</span>
     </a>
   </li> 
 </ul>

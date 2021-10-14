@@ -3,7 +3,7 @@ include("config.php");
 
 $com_id = $_GET['com_id'];
 
-$sql = "SELECT * FROM view_rec_pro_cate_com
+$sql = "SELECT * FROM view_rec_pro_cate_com1
         WHERE com_id = $com_id
         ORDER BY rec_id;";
 $result = $conn->query($sql);
@@ -46,9 +46,9 @@ $com = $res->fetch_assoc()
      <td><?php echo $no ?></td>
      <td><?php echo $row['pro_name'] ?></td>
      <td><?php echo $row['cate_name'] ?></td>
-     <td><?php echo $row['rec_cost'] ?></td>
-     <td><?php echo $row['rec_list'] ?></td>
-     <td><?php echo $row['rec_send'] ?></td>
+     <td><?php echo $row['pro_cost'] ?></td>
+     <td><?php echo $row['pro_list'] ?></td>
+     <td><?php echo $row['pro_send'] ?></td>
      <td>
        <a  href="rec_up.php?com_id=<?php echo $com_id ?>&rec_id=<?php echo $row['rec_id'] ?>&pro_id=<?php echo $row['pro_id'] ?>" data-toggle="modal" data-target="#create" data-whatever="@mdo" class="btn btn-warning btn-sm">แก้ไข</a>
        <a onclick="return confirm_delete()" href="rec_del.php?rec_id=<?php echo $row['rec_id'] ?>&com_id=<?php echo $row['com_id'] ?>" class="btn btn-danger btn-sm">ลบ</a>
