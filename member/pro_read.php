@@ -20,6 +20,7 @@ $result = $conn->query($sql);
       <th>ทุน</th>
       <th>ปลีก</th>
       <th>ส่ง</th>
+      <th>หมายเหตุ</th>
       <th width="15%">ดำเนินการ</th>
     </tr>
   </thead>
@@ -38,6 +39,7 @@ $result = $conn->query($sql);
           <td><?php echo $row['pro_cost'] ?></td>
           <td><?php echo $row['pro_list'] ?></td>
           <td><?php echo $row['pro_send'] ?></td>
+          <td><?php echo $row['pro_note'] ?></td>
           <td>
             
             <a href="pro_up.php?pro_id=<?php echo $row['pro_id'] ?>&cate_id=<?php echo $row['cate_id'] ?>" data-toggle="modal" data-target="#create" data-whatever="@mdo" class="btn btn-warning btn-sm">แก้ไข</a>

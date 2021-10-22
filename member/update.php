@@ -18,7 +18,8 @@
         $pro_list = $_POST['pro_list']; 
         $pro_cost = $_POST['pro_cost']; 
         $pro_send = $_POST['pro_send']; 
-        $sql = "UPDATE product SET pro_name='$pro_name',cate_id='$cate_id', pro_list ='$pro_list',pro_cost='$pro_cost',pro_send='$pro_send' WHERE pro_id='$pro_id';";
+        $pro_note = $_POST['pro_note']; 
+        $sql = "UPDATE product SET pro_name='$pro_name',cate_id='$cate_id', pro_list ='$pro_list',pro_cost='$pro_cost',pro_send='$pro_send',pro_note='$pro_note' WHERE pro_id='$pro_id';";
     }elseif($opt=="company"){
         $com_id = $_POST['com_id'];
         $com_name = $_POST['com_name'];
@@ -39,6 +40,15 @@
         $cate_id = $_POST['cate_id'];
         $cate_name = $_POST['cate_name'];
         $sql = "UPDATE category SET cate_name='$cate_name' WHERE cate_id ='$cate_id';";
+    }elseif($opt=="product01"){
+        $pro_id = $_POST['pro_id'];
+        $pro_name = $_POST['pro_name'];
+        $cate_id = $_POST['cate_id'];
+        $pro_list = $_POST['pro_list']; 
+        $pro_cost = $_POST['pro_cost']; 
+        $pro_send = $_POST['pro_send']; 
+        $pro_note = $_POST['pro_note']; 
+        $sql = "UPDATE product SET pro_name='$pro_name',cate_id='$cate_id', pro_list ='$pro_list',pro_cost='$pro_cost',pro_send='$pro_send',pro_note='$pro_note' WHERE pro_id='$pro_id';";
     }
 
     $res = $conn->query($sql);
@@ -57,6 +67,8 @@
             header("Location: index.php");
         }else if ($opt=="category"){
             header("Location: cate_show.php");
+        }else if ($opt=="product01"){
+            header("Location: pro_cate.php?cate_id=" . $cate_id);
         }
     }else{
         echo "Error deleting record: " . $conn->error;

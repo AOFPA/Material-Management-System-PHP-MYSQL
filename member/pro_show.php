@@ -41,7 +41,7 @@ error_reporting(0);
               <div class="row">
                 <div class="col-sm-12">
                   <div class="box-body">
-                   <?php include('pro_read.php');?>
+                    <?php include('pro_read.php'); ?>
                   </div>
                 </div>
               </div>
@@ -49,12 +49,12 @@ error_reporting(0);
           </div>
         </div>
       </section>
-      
 
 
 
-           <!-- FORM CREATE --------------------------------------------------------------------------------->
-           <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+
+      <!-- FORM CREATE --------------------------------------------------------------------------------->
+      <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -67,7 +67,7 @@ error_reporting(0);
               <form method="POST" action="insert.php">
                 <input type="hidden" id="optinsert" name="optinsert" value="product">
 
-               
+
 
                 <div class="form-group">
                   <label for="pro_name" class="control-label">ชื่อสินค้า</label>
@@ -110,9 +110,15 @@ error_reporting(0);
                   <label for="pro_stock" class="control-label">จำนวนสินค้า</label>
                   <input type="text" class="form-control" id="pro_stock" name="pro_stock" placeholder="0">
                 </div>
+
+                <div class="form-group">
+                  <label for="pro_note" class="control-label">หมายเหตุ</label>
+                  <input type="text" class="form-control" id="pro_note" name="pro_note" placeholder="ไม่จำเป็นต้องระบุ">
+                </div>
+
                 <button type="submit" class="btn btn-primary">เพิ่ม</button>
                 <a href="pro_show.php" class="btn btn-default">ยกเลิก</a>
-                
+
               </form>
             </div>
             <div class="modal-footer">
@@ -127,7 +133,7 @@ error_reporting(0);
 </body>
 
 </html>
-<?php include('footerjs.php'); 
+<?php include('footerjs.php');
 $conn->close();
 
 ?>

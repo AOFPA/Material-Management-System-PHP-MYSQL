@@ -16,7 +16,7 @@ $row = $res->fetch_assoc();
     <div class="container">
 
         <form method="POST" action="update.php">
-            <input type="hidden" id="optupdate" name="optupdate" value="product">
+            <input type="hidden" id="optupdate" name="optupdate" value="product01">
 
 
             <div class="form-group">
@@ -83,7 +83,7 @@ $row = $res->fetch_assoc();
 
             <button onclick="return confirm_up()" type="sunmit" class="btn btn-danger">แก้ไข</button>
             <button type="reset" class="btn btn-success">ล้าง</button>
-            <a href="pro_show.php" class="btn btn-primary">ยกเลิก</a>
+            <a href="pro_cate.php?cate_id=<?php echo $cate_id ?>" class="btn btn-primary">ยกเลิก</a>
     </div>
     </form>
 

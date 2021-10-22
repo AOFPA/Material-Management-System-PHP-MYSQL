@@ -18,13 +18,23 @@
       $pro_list = $_POST['pro_list']; 
       $pro_cost = $_POST['pro_cost']; 
       $pro_send = $_POST['pro_send']; 
-      $sql = "INSERT INTO `product` (`pro_name`, `pro_stock`,`cate_id`,`pro_list`,`pro_cost`,`pro_send`) VALUES ('$pro_name', '$pro_stock','$cate_id','$pro_list','$pro_cost','$pro_send'); ";
+      $pro_note = $_POST['pro_note']; 
+      $sql = "INSERT INTO `product` (`pro_name`, `pro_stock`,`cate_id`,`pro_list`,`pro_cost`,`pro_send`,`pro_note`) VALUES ('$pro_name', '$pro_stock','$cate_id','$pro_list','$pro_cost','$pro_send','$pro_note'); ";
     }elseif($opt=="company"){
       $com_name = $_POST['com_name']; 
       $sql = "INSERT INTO `company` (`com_name`) VALUES ('$com_name'); ";
     }elseif($opt=="category"){
       $cate_name = $_POST['cate_name'];
       $sql = "INSERT INTO category(cate_name) VALUES('$cate_name');";
+    }elseif($opt=="product01"){
+      $pro_name = $_POST['pro_name']; 
+      $pro_stock = $_POST['pro_stock']; 
+      $cate_id = $_POST['cate_id']; 
+      $pro_list = $_POST['pro_list']; 
+      $pro_cost = $_POST['pro_cost']; 
+      $pro_send = $_POST['pro_send']; 
+      $pro_note = $_POST['pro_note']; 
+      $sql = "INSERT INTO `product` (`pro_name`, `pro_stock`,`cate_id`,`pro_list`,`pro_cost`,`pro_send`,`pro_note`) VALUES ('$pro_name', '$pro_stock','$cate_id','$pro_list','$pro_cost','$pro_send','$pro_note'); ";
     }
 
     if ($conn->query($sql) === TRUE) {
@@ -36,6 +46,8 @@
           header("location: com_show.php");
         }elseif($opt=='category'){
           header("location: cate_show.php");
+        }else if($opt=='product01'){
+          header("location: pro_cate.php?cate_id=" . $cate_id);
         }
 
       } else {
