@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2021 at 12:54 PM
+-- Generation Time: Dec 13, 2021 at 11:19 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `ko_company`
 --
+CREATE DATABASE IF NOT EXISTS `ko_company` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `ko_company`;
 
 -- --------------------------------------------------------
 
@@ -32,15 +34,6 @@ CREATE TABLE `category` (
   `cate_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `category`
---
-
-INSERT INTO `category` (`cate_id`, `cate_name`) VALUES
-(1, 'ไม้'),
-(2, 'เหล็ก'),
-(4, 'ไฟฟ้า');
-
 -- --------------------------------------------------------
 
 --
@@ -51,18 +44,6 @@ CREATE TABLE `company` (
   `com_id` int(10) NOT NULL,
   `com_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `company`
---
-
-INSERT INTO `company` (`com_id`, `com_name`) VALUES
-(1, 'บริษัท คิง โปรดัค คอนโทรล จำกัด'),
-(2, 'บริษัท บี จำกัด'),
-(3, 'บริษัท ซี จำกัด'),
-(5, 'บริษัท โชคชัย จำกัด '),
-(7, 'บริษัท 555 จำกัด'),
-(8, 'บริษัท z จำกัด');
 
 -- --------------------------------------------------------
 
@@ -81,16 +62,6 @@ CREATE TABLE `product` (
   `pro_note` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`pro_id`, `pro_name`, `pro_stock`, `cate_id`, `pro_list`, `pro_cost`, `pro_send`, `pro_note`) VALUES
-(12, 'เหล็กเส้น', 160, 2, 120.00, 100.00, 140.00, 'ทดสอบ'),
-(13, 'สายไฟVFF 2x0.5 ม้วน', 400, 4, 60.00, 50.00, 70.00, 'ทดสอบ'),
-(14, 'ไม้อัด', 10, 1, 50.00, 40.00, 60.00, 'test'),
-(16, 'ไม้ทดสอบ', 10, 1, 20.00, 10.00, 30.00, '**ทดสอบ**');
-
 -- --------------------------------------------------------
 
 --
@@ -102,18 +73,6 @@ CREATE TABLE `record` (
   `pro_id` int(10) NOT NULL,
   `com_id` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `record`
---
-
-INSERT INTO `record` (`rec_id`, `pro_id`, `com_id`) VALUES
-(38, 12, 1),
-(39, 12, 2),
-(40, 13, 1),
-(41, 12, 3),
-(42, 14, 3),
-(43, 13, 5);
 
 -- --------------------------------------------------------
 
@@ -131,24 +90,6 @@ CREATE TABLE `view_pro_cate` (
 ,`pro_stock` int(10)
 ,`cate_name` varchar(50)
 ,`pro_note` varchar(100)
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `view_rec`
--- (See below for the actual view)
---
-CREATE TABLE `view_rec` (
-);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `view_rec_pro_cate_com`
--- (See below for the actual view)
---
-CREATE TABLE `view_rec_pro_cate_com` (
 );
 
 -- --------------------------------------------------------
@@ -179,24 +120,6 @@ CREATE TABLE `view_rec_pro_cate_com1` (
 DROP TABLE IF EXISTS `view_pro_cate`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_pro_cate`  AS SELECT `a`.`pro_id` AS `pro_id`, `a`.`pro_name` AS `pro_name`, `a`.`pro_list` AS `pro_list`, `a`.`pro_send` AS `pro_send`, `a`.`pro_cost` AS `pro_cost`, `a`.`cate_id` AS `cate_id`, `a`.`pro_stock` AS `pro_stock`, `b`.`cate_name` AS `cate_name`, `a`.`pro_note` AS `pro_note` FROM (`product` `a` join `category` `b` on(`a`.`cate_id` = `b`.`cate_id`)) ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `view_rec`
---
-DROP TABLE IF EXISTS `view_rec`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_rec`  AS SELECT `a`.`rec_id` AS `rec_id`, `a`.`rec_cost` AS `rec_cost`, `a`.`rec_list` AS `rec_list`, `a`.`rec_send` AS `rec_send`, `a`.`pro_id` AS `pro_id`, `b`.`pro_name` AS `pro_name`, `a`.`com_id` AS `com_id`, `c`.`com_name` AS `com_name` FROM ((`record` `a` join `product` `b` on(`a`.`pro_id` = `b`.`pro_id`)) join `company` `c` on(`a`.`com_id` = `c`.`com_id`)) ;
-
--- --------------------------------------------------------
-
---
--- Structure for view `view_rec_pro_cate_com`
---
-DROP TABLE IF EXISTS `view_rec_pro_cate_com`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `view_rec_pro_cate_com`  AS SELECT `a`.`rec_id` AS `rec_id`, `a`.`rec_cost` AS `rec_cost`, `a`.`rec_list` AS `rec_list`, `a`.`rec_send` AS `rec_send`, `a`.`pro_id` AS `pro_id`, `b`.`pro_name` AS `pro_name`, `b`.`cate_id` AS `cate_id`, `c`.`cate_name` AS `cate_name`, `a`.`com_id` AS `com_id`, `d`.`com_name` AS `com_name` FROM (((`record` `a` join `product` `b` on(`a`.`pro_id` = `b`.`pro_id`)) join `category` `c` on(`b`.`cate_id` = `c`.`cate_id`)) join `company` `d` on(`a`.`com_id` = `d`.`com_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -246,25 +169,25 @@ ALTER TABLE `record`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `cate_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cate_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `com_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `com_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `pro_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `pro_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `record`
 --
 ALTER TABLE `record`
-  MODIFY `rec_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `rec_id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

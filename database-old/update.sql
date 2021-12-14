@@ -2,7 +2,8 @@
 ALTER TABLE product
 add pro_list double(10,2) DEFAULT 0 NULL,
 add pro_cost double(10,2) DEFAULT 0 NULL,
-add pro_send double(10,2) DEFAULT 0 NULL
+add pro_send double(10,2) DEFAULT 0 NULL,
+add pro_note varchar(100) CHARACTER set utf8 COLLATE utf8_general_ci null
 
 --create view
 CREATE OR REPLACE VIEW view_pro_cate AS
